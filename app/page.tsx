@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import Logo from "../public/images/logo.png";
+
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
@@ -21,7 +24,7 @@ const FEATURED = [
     type: "Automotive",
     price: "₹4,899",
     tag: "Best Seller",
-    tagColor: "bg-amber-400 text-amber-900",
+    tagColor: "bg-[#F53827] text-amber-900",
     warranty: "36 months",
     cca: "550 CCA",
   },
@@ -98,7 +101,7 @@ function StarRow({ count }: { count: number }) {
   return (
     <span className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} className="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+        <svg key={i} className="w-4 h-4 text-[#F53827]" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       ))}
@@ -121,19 +124,14 @@ function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-zinc-950/95 backdrop-blur shadow-lg" : "bg-transparent"
+        scrolled ? "bg-white/90 backdrop-blur-md border-b border-white/10 shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg bg-amber-400 flex items-center justify-center">
-              <BoltIcon className="w-5 h-5 text-zinc-950" />
-            </div>
-            <span className="text-white font-black text-xl tracking-tight">
-              VOLTA<span className="text-amber-400">ZONE</span>
-            </span>
+              <Image src={Logo} alt="Image not found" className="w-24"/>
           </div>
 
           {/* Desktop links */}
@@ -142,7 +140,7 @@ function Navbar() {
               <a
                 key={l}
                 href="#"
-                className="text-zinc-300 hover:text-amber-400 text-sm font-medium transition-colors"
+                className="text-[#F53827] hover:text-[#42BD00] text-xl font-medium transition-colors"
               >
                 {l}
               </a>
@@ -151,12 +149,12 @@ function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="#" className="text-zinc-300 hover:text-white text-sm font-medium transition-colors">
+            <a href="#" className="text-[#F53827] hover:text-[#42BD00] text-sm font-medium transition-colors">
               📞 +91 98300 00000
             </a>
             <a
               href="#"
-              className="bg-amber-400 hover:bg-amber-300 text-zinc-950 text-sm font-bold px-5 py-2.5 rounded-full transition-colors"
+              className="bg-[#42BD00] hover:bg-[#F53827] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors"
             >
               Log in
             </a>
@@ -179,17 +177,17 @@ function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-zinc-950 border-t border-zinc-800 px-4 py-4 space-y-3">
+        <div className="md:hidden  border-t border-zinc-800 px-4 py-4 space-y-3">
           {NAV_LINKS.map((l) => (
-            <a key={l} href="#" className="block text-zinc-300 hover:text-amber-400 font-medium py-1">
+            <a key={l} href="#" className="block text-zinc-300 hover:text-[#F53827] font-medium py-1">
               {l}
             </a>
           ))}
           <a
             href="#"
-            className="block bg-amber-400 text-zinc-950 font-bold text-center py-2.5 rounded-full mt-3"
+            className="block bg-[#F53827] text-zinc-950 font-bold text-center py-2.5 rounded-full mt-3"
           >
-            Get a Quote
+            Login
           </a>
         </div>
       )}
@@ -199,51 +197,56 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen bg-zinc-950 flex items-center overflow-hidden">
+    <section className="relative min-h-screen  flex items-center overflow-hidden">
+       <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/video/hero.mp4" type="video/mp4" />
+  </video>
+
       {/* Background grid */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(251,191,36,1) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
+        className="absolute inset-0 z-10 bg-[rgba(0,0,0,0.6)]"
       />
 
       {/* Big bolt bg graphic */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none">
-        <svg viewBox="0 0 200 200" className="w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] text-amber-400" fill="currentColor">
+        <svg viewBox="0 0 200 200" className="w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] text-[#F53827]" fill="currentColor">
           <path d="M130 10L40 115H100L70 190L185 80H120L130 10Z" />
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left text */}
           <div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
               POWER
-              <br />
+              
               THAT
               <br />
-              <span className="text-amber-400">NEVER</span>
-              <br />
+              <span className="text-[#F53827]">NEVER </span>
+              
               QUITS.
             </h1>
-            <p className="mt-6 text-zinc-400 text-lg max-w-md leading-relaxed">
+            <p className="mt-6 text-white text-lg max-w-md leading-relaxed">
               India's most trusted battery shop. Automotive, inverter, solar and industrial batteries — delivered and installed at your doorstep.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#products"
-                className="bg-amber-400 hover:bg-amber-300 text-zinc-950 font-black px-8 py-4 rounded-full text-base transition-all hover:scale-105"
+                className="bg-[#F53827] hover:bg-[#42BD00] text-white font-black px-8 py-4 rounded-full text-base transition-all hover:scale-105"
               >
                 Shop Batteries
               </a>
               <a
                 href="#contact"
-                className="border border-zinc-600 hover:border-amber-400 text-white hover:text-amber-400 font-bold px-8 py-4 rounded-full text-base transition-all"
+                className=" bg-[#42BD00] hover:bg-[#F53827] text-white font-bold px-8 py-4 rounded-full text-base transition-all hover:scale-105"
               >
                 Download App
               </a>
@@ -251,67 +254,7 @@ function Hero() {
             
           </div>
 
-          {/* Right card stack */}
-          <div className="relative hidden lg:block">
-            <div className="relative mx-auto w-[340px]">
-              {/* Card mid */}
-              <div className="absolute top-3 left-4 right-0 h-full bg-zinc-800/80 border border-zinc-700 rounded-2xl" />
-              {/* Card front */}
-              <div className="relative bg-zinc-900 border border-zinc-700 rounded-2xl p-8 shadow-2xl">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <p className="text-zinc-500 text-xs uppercase tracking-widest">Featured Battery</p>
-                    <h3 className="text-white font-black text-xl mt-1">PowerMax Pro 65Ah</h3>
-                    <p className="text-zinc-400 text-sm">Automotive • MF Sealed</p>
-                  </div>
-                  <span className="bg-amber-400 text-zinc-950 text-xs font-black px-2.5 py-1 rounded-full">
-                    BEST SELLER
-                  </span>
-                </div>
-
-                {/* Visual battery */}
-                <div className="relative bg-zinc-800 rounded-xl p-4 flex items-center justify-center mb-6 h-36">
-                  <div className="relative">
-                    <div className="w-44 h-24 bg-zinc-700 rounded-lg border-2 border-zinc-600 flex items-center justify-center">
-                      <div className="flex gap-2">
-                        {[85, 95, 100, 100].map((h, i) => (
-                          <div
-                            key={i}
-                            className="w-6 rounded-sm bg-amber-400"
-                            style={{ height: `${h * 0.4}px` }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="absolute -top-2 left-6 w-4 h-3 bg-zinc-600 rounded-t-sm" />
-                    <div className="absolute -top-2 left-14 w-4 h-3 bg-zinc-600 rounded-t-sm" />
-                  </div>
-                  <div className="absolute top-3 right-3 text-amber-400 text-xs font-bold">
-                    100% Charge
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3 text-center mb-6">
-                  {[["550 CCA", "Cold Crank"], ["65 Ah", "Capacity"], ["36 mo", "Warranty"]].map(([v, l]) => (
-                    <div key={l} className="bg-zinc-800 rounded-lg p-2.5">
-                      <p className="text-white font-black text-sm">{v}</p>
-                      <p className="text-zinc-500 text-xs">{l}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-zinc-500 text-xs">Starting from</p>
-                    <p className="text-amber-400 font-black text-2xl">₹4,899</p>
-                  </div>
-                  <button className="bg-amber-400 hover:bg-amber-300 text-zinc-950 font-black px-5 py-2.5 rounded-full text-sm transition-colors">
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </section>
@@ -320,13 +263,13 @@ function Hero() {
 
 function StatsBar() {
   return (
-    <section className="bg-amber-400 py-8">
+    <section className="bg-[#F53827] py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {STATS.map(({ number, label }) => (
             <div key={label}>
-              <p className="text-zinc-950 font-black text-3xl sm:text-4xl">{number}</p>
-              <p className="text-zinc-800 text-sm font-semibold mt-1">{label}</p>
+              <p className="text-white font-black text-3xl sm:text-4xl">{number}</p>
+              <p className="text-white text-sm font-semibold mt-1">{label}</p>
             </div>
           ))}
         </div>
@@ -337,18 +280,18 @@ function StatsBar() {
 
 function Categories() {
   return (
-    <section id="products" className="bg-zinc-900 py-20">
+    <section id="products" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-2">What We Carry</p>
-          <h2 className="text-white font-black text-4xl sm:text-5xl">Shop by Category</h2>
+          <p className="text-[#42BD00] text-sm font-bold uppercase tracking-widest mb-2">What We Carry</p>
+          <h2 className="text-[#F53827] font-black text-4xl sm:text-5xl">Shop by Category</h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {CATEGORIES.map(({ icon, label, sub }) => (
             <a
               key={label}
               href="#"
-              className="group bg-zinc-800 hover:bg-amber-400 border border-zinc-700 hover:border-amber-400 rounded-2xl p-5 text-center transition-all duration-200 hover:scale-105"
+              className="group bg-[#041A01] hover:bg-[#F53827] border border-zinc-700 hover:border[#F53827] rounded-2xl p-5 text-center transition-all duration-200 hover:scale-105"
             >
               <div className="text-4xl mb-3">{icon}</div>
               <p className="text-white group-hover:text-zinc-950 font-black text-sm">{label}</p>
@@ -363,14 +306,14 @@ function Categories() {
 
 function FeaturedProducts() {
   return (
-    <section className="bg-zinc-950 py-20">
+    <section className=" py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
-            <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-2">Handpicked</p>
-            <h2 className="text-white font-black text-4xl sm:text-5xl">Featured Products</h2>
+            <p className="text-[#42BD00] text-sm font-bold uppercase tracking-widest mb-2">Handpicked</p>
+            <h2 className="text-[#F53827] font-black text-4xl sm:text-5xl">Featured Products</h2>
           </div>
-          <a href="#" className="text-amber-400 hover:text-amber-300 font-bold text-sm underline underline-offset-4 shrink-0">
+          <a href="#" className="text-[#F53827] hover:text-amber-300 font-bold text-sm underline underline-offset-4 shrink-0">
             View All Products →
           </a>
         </div>
@@ -378,7 +321,7 @@ function FeaturedProducts() {
           {FEATURED.map((p) => (
             <div
               key={p.name}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col hover:border-amber-400/50 transition-colors group"
+              className="border border-zinc-800 rounded-2xl p-6 flex flex-col hover:border-[#F53827] transition-colors group"
             >
               <div className="flex items-start justify-between mb-4">
                 <span className={`text-xs font-black px-2.5 py-1 rounded-full ${p.tagColor}`}>{p.tag}</span>
@@ -386,11 +329,11 @@ function FeaturedProducts() {
               </div>
 
               {/* Battery illustration */}
-              <div className="bg-zinc-800 rounded-xl h-28 flex items-center justify-center mb-5 group-hover:bg-zinc-800/70 transition-colors">
+              <div className="h-28 flex items-center justify-center mb-5 transition-colors border-b">
                 <div className="relative">
                   <div className="w-32 h-16 bg-zinc-700 rounded-lg border-2 border-zinc-600 flex items-center justify-center gap-1.5 px-3">
                     {[1, 2, 3].map((i) => (
-                      <div key={i} className="flex-1 h-8 bg-amber-400/80 rounded-sm" />
+                      <div key={i} className="flex-1 h-8 bg-[#F53827]/80 rounded-sm" />
                     ))}
                   </div>
                   <div className="absolute -top-2 left-4 w-3 h-2.5 bg-zinc-600 rounded-t-sm" />
@@ -401,13 +344,13 @@ function FeaturedProducts() {
               <h3 className="text-white font-black text-lg leading-tight">{p.name}</h3>
 
               <div className="flex gap-3 mt-3">
-                <span className="text-zinc-500 text-xs bg-zinc-800 px-2.5 py-1 rounded-full">{p.warranty}</span>
-                <span className="text-zinc-500 text-xs bg-zinc-800 px-2.5 py-1 rounded-full">{p.cca}</span>
+                <span className="text-white text-xs bg-[#F53827] px-2.5 py-1 rounded-full">{p.warranty}</span>
+                <span className="text-white text-xs bg-[#42BD00] px-2.5 py-1 rounded-full">{p.cca}</span>
               </div>
 
               <div className="mt-auto pt-5 flex items-center justify-between">
-                <p className="text-amber-400 font-black text-2xl">{p.price}</p>
-                <button className="bg-zinc-800 hover:bg-amber-400 text-white hover:text-zinc-950 font-bold text-sm px-4 py-2 rounded-full transition-all">
+                <p className="text-[#F53827] font-black text-2xl">{p.price}</p>
+                <button className="bg-[#42BD00] hover:bg-[#F53827] text-white hover:text-zinc-950 font-bold text-sm px-4 py-2 rounded-full transition-all">
                   Add to Cart
                 </button>
               </div>
@@ -454,17 +397,17 @@ function WhyUs() {
   ];
 
   return (
-    <section className="bg-zinc-900 py-20">
+    <section className="bg-[#041A01] py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-2">Why Choose Us</p>
+          <p className="text-[#F53827] text-sm font-bold uppercase tracking-widest mb-2">Why Choose Us</p>
           <h2 className="text-white font-black text-4xl sm:text-5xl">The VoltaZone Difference</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map(({ icon, title, desc }) => (
             <div
               key={title}
-              className="bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 rounded-2xl p-7 transition-colors"
+              className=" border border-zinc-800 hover:border-[#F53827] rounded-2xl p-7 transition-colors"
             >
               <div className="text-3xl mb-4">{icon}</div>
               <h3 className="text-white font-black text-lg mb-2">{title}</h3>
@@ -479,16 +422,16 @@ function WhyUs() {
 
 function Brands() {
   return (
-    <section className="bg-zinc-950 py-16 border-y border-zinc-800">
+    <section className=" py-16 border-y">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-zinc-600 text-sm font-semibold uppercase tracking-widest mb-10">
+        <p className="text-center text-[#F53827] text-sm font-semibold uppercase tracking-widest mb-10">
           Authorized Dealer for
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           {BRANDS.map((b) => (
             <div
               key={b}
-              className="bg-zinc-900 border border-zinc-800 hover:border-amber-400/50 text-zinc-400 hover:text-amber-400 font-black text-sm px-6 py-3 rounded-full transition-all cursor-pointer"
+              className="bg-[#42BD00] border border-[#42BD00] hover:border-[#F53827] text-white hover:bg-[#F53827] font-black text-sm px-6 py-3 rounded-full transition-all cursor-pointer"
             >
               {b}
             </div>
@@ -501,27 +444,27 @@ function Brands() {
 
 function Testimonials() {
   return (
-    <section className="bg-zinc-900 py-20">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-2">Customers Love Us</p>
-          <h2 className="text-white font-black text-4xl sm:text-5xl">Real Reviews</h2>
+          <p className="text-[#42BD00] text-sm font-bold uppercase tracking-widest mb-2">Customers Love Us</p>
+          <h2 className="text-[#F53827] font-black text-4xl sm:text-5xl">Real Reviews</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {TESTIMONIALS.map(({ name, location, text, stars }) => (
             <div
               key={name}
-              className="bg-zinc-950 border border-zinc-800 rounded-2xl p-7"
+              className=" border border-[#F53827] rounded-2xl p-7"
             >
               <StarRow count={stars} />
-              <p className="text-zinc-300 text-sm leading-relaxed mt-4 mb-6">"{text}"</p>
+              <p className="text-black text-sm leading-relaxed mt-4 mb-6">"{text}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-amber-400/20 border border-amber-400/30 flex items-center justify-center text-amber-400 font-black text-sm">
+                <div className="w-10 h-10 rounded-full bg-[#F53827]/20 border border-amber-400/30 flex items-center justify-center text-[#F53827] font-black text-sm">
                   {name[0]}
                 </div>
                 <div>
-                  <p className="text-white font-bold text-sm">{name}</p>
-                  <p className="text-zinc-600 text-xs">{location}</p>
+                  <p className="text-[#F53827] font-bold text-sm">{name}</p>
+                  <p className="text-[#42BD00] text-xs">{location}</p>
                 </div>
               </div>
             </div>
@@ -534,7 +477,7 @@ function Testimonials() {
 
 function CTA() {
   return (
-    <section className="bg-amber-400 py-20 relative overflow-hidden">
+    <section className="bg-[#F53827] py-20 relative overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.08]"
@@ -545,27 +488,27 @@ function CTA() {
         }}
       />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <BoltIcon className="w-14 h-14 text-zinc-950/20 mx-auto mb-6" />
-        <h2 className="text-zinc-950 font-black text-4xl sm:text-6xl leading-tight mb-4">
+        <BoltIcon className="w-14 h-14 text-[#42BD00] mx-auto mb-6" />
+        <h2 className="text-white font-black text-4xl sm:text-6xl leading-tight mb-4">
           Need a Battery
           <br />
           Right Now?
         </h2>
-        <p className="text-zinc-800 text-lg mb-10 max-w-xl mx-auto">
+        <p className="text-white text-lg mb-10 max-w-xl mx-auto">
           Call us or request a callback. Our experts will help you find the perfect battery for your vehicle or home setup — fast.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="tel:+919830000000"
-            className="bg-zinc-950 hover:bg-zinc-800 text-amber-400 font-black px-10 py-4 rounded-full text-lg transition-all hover:scale-105"
+            className="border-2 border-white bg-[#42BD00] text-white hover:bg-white hover:text-black font-black px-10 py-4 rounded-full text-lg transition-all"
           >
-            📞 Call Now
+             WhatsApp Us
           </a>
           <a
             href="#"
-            className="border-2 border-zinc-950 hover:bg-zinc-950/10 text-zinc-950 font-black px-10 py-4 rounded-full text-lg transition-all"
+            className="border-2 border-white text-white hover:bg-white hover:text-black font-black px-10 py-4 rounded-full text-lg transition-all"
           >
-            WhatsApp Us
+           Call Now
           </a>
         </div>
       </div>
@@ -575,17 +518,12 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-800 pt-16 pb-8">
+    <footer className=" border-t border-zinc-800 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
-                <BoltIcon className="w-4 h-4 text-zinc-950" />
-              </div>
-              <span className="text-white font-black text-lg">
-                VOLTA<span className="text-amber-400">ZONE</span>
-              </span>
+              <Image src={Logo} alt="Image not found" className="w-24"/>
             </div>
             <p className="text-zinc-500 text-sm leading-relaxed">
               Your trusted battery partner since 2009. Serving Kolkata, Howrah and all of West Bengal.
@@ -611,7 +549,7 @@ function Footer() {
               <ul className="space-y-2">
                 {links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-zinc-500 hover:text-amber-400 text-sm transition-colors">
+                    <a href="#" className="text-zinc-500 hover:text-[#F53827] text-sm transition-colors">
                       {l}
                     </a>
                   </li>
