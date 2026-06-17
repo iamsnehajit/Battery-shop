@@ -98,7 +98,7 @@ function Navbar() {
               📞 +91 98300 00000
             </a>
             <a href="#"
-              className="bg-[#42BD00] hover:bg-[#F53827] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors">
+              className="bg-[#42BD00] hover:bg-[#42BD00] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors">
               Log in
             </a>
           </div>
@@ -129,7 +129,7 @@ function Navbar() {
               📞 +91 98300 00000
             </a>
             <a href="#"
-              className="block bg-[#42BD00] hover:bg-[#F53827] text-white font-bold text-center py-3 rounded-full transition-colors">
+              className="block bg-[#42BD00] hover:bg-[#42BD00] text-white font-bold text-center py-3 rounded-full transition-colors">
               Log in
             </a>
           </div>
@@ -175,7 +175,7 @@ function Hero() {
                 Shop Batteries
               </a>
               <a href="#contact"
-                className="bg-[#42BD00] hover:bg-[#F53827] text-white font-bold px-8 py-4 rounded-full text-base transition-all hover:scale-105">
+                className="bg-[#42BD00] hover:bg-[#42BD00] text-white font-bold px-8 py-4 rounded-full text-base transition-all hover:scale-105">
                 Download App
               </a>
             </div>
@@ -218,7 +218,7 @@ function Categories() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {CATEGORIES.map(({ icon, label, sub }) => (
             <a key={label} href="#"
-              className="group bg-[#041A01] hover:bg-[#F53827] border border-zinc-700 hover:border-[#F53827] rounded-2xl p-5 text-center transition-all duration-200 hover:scale-105">
+              className="group bg-[#041A01] hover:bg-[#42BD00] border border-zinc-700 hover:border-[#F53827] rounded-2xl p-5 text-center transition-all duration-200 hover:scale-105">
               <div className="text-4xl mb-3">{icon}</div>
               <p className="text-white font-black text-sm">{label}</p>
               <p className="text-zinc-400 group-hover:text-white/80 text-xs mt-0.5">{sub}</p>
@@ -275,7 +275,7 @@ function FeaturedProducts() {
 
               <div className="mt-auto pt-5 flex items-center justify-between">
                 <p className="text-[#F53827] font-black text-2xl">{p.price}</p>
-                <button className="bg-[#42BD00] hover:bg-[#F53827] text-white font-bold text-sm px-4 py-2 rounded-full transition-colors">
+                <button className="bg-[#42BD00] hover:bg-[#42BD00] text-white font-bold text-sm px-4 py-2 rounded-full transition-colors">
                   Add to Cart
                 </button>
               </div>
@@ -333,7 +333,7 @@ function Brands() {
         <div className="flex flex-wrap justify-center gap-4">
           {BRANDS.map((b) => (
             <div key={b}
-              className="bg-[#42BD00] hover:bg-[#F53827] border border-[#42BD00] hover:border-[#F53827] text-white font-black text-sm px-6 py-3 rounded-full transition-all cursor-pointer">
+              className="bg-[#42BD00] hover:bg-[#42BD00] border border-[#42BD00] hover:border-[#F53827] text-white font-black text-sm px-6 py-3 rounded-full transition-all cursor-pointer">
               {b}
             </div>
           ))}

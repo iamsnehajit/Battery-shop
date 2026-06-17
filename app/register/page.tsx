@@ -20,9 +20,9 @@ function StepBar({ step }: { step: 1 | 2 }) {
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border-2 transition-all
               ${step > s
-                ? "bg-amber-400 border-amber-400 text-zinc-950"
+                ? "bg-[#42BD00] border-[#42BD00] text-white"
                 : step === s
-                ? "bg-amber-400 border-amber-400 text-zinc-950"
+                ? "bg-[#42BD00] border-[#42BD00] text-white"
                 : "bg-white border-zinc-300 text-zinc-400"}`}
           >
             {step > s ? (
@@ -32,7 +32,7 @@ function StepBar({ step }: { step: 1 | 2 }) {
             ) : s}
           </div>
           {idx < 1 && (
-            <div className={`w-16 sm:w-24 h-0.5 transition-all ${step >= 2 ? "bg-amber-400" : "bg-zinc-200"}`} />
+            <div className={`w-16 sm:w-24 h-0.5 transition-all ${step >= 2 ? "bg-[#42BD00]" : "bg-zinc-200"}`} />
           )}
         </div>
       ))}
@@ -65,9 +65,9 @@ function Field({
           placeholder={placeholder}
           autoComplete={autoComplete}
           className={`w-full border rounded-xl px-4 py-3 text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none transition-all
-            focus:ring-2 focus:ring-amber-400 focus:border-amber-400 focus:bg-amber-50/30
+            focus:ring-2 focus:ring-[#42BD00] focus:border-[#42BD00] focus:bg-amber-50/30
             ${isPassword ? "pr-11" : ""}
-            ${error ? "border-red-400 bg-red-50/30" : "border-zinc-200"}`}
+            ${error ? "border-[#F53827] bg-red-50/30" : "border-[#42BD00]"}`}
         />
         {isPassword && (
           <button
@@ -154,24 +154,15 @@ export default function RegisterPage() {
     <main className="min-h-screen bg-zinc-100 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md">
 
-        <div className="bg-white rounded-3xl border border-zinc-200 shadow-sm p-8 sm:p-10">
+        <div className="bg-white rounded-3xl border border-[#F53827] shadow-sm p-8 sm:p-10">
 
           {/* Logo */}
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-amber-400 flex items-center justify-center shadow-md shadow-amber-200 shrink-0">
-              <svg className="w-5 h-5 text-zinc-950" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2L4.5 13.5H11L10 22L20.5 10H14L13 2Z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-lg font-black text-zinc-900 leading-none tracking-tight">
-                VOLTA<span className="text-amber-400">ZONE</span>
-              </p>
-              
-            </div>
+           
+         
           </div>
 
-          <h2 className="text-xl font-bold text-zinc-900 text-center mb-1">Create account</h2>
+          <h2 className="text-2xl font-bold text-zinc-900 text-center mb-1">Create account</h2>
           <p className="text-sm text-zinc-400 text-center mb-7">
             {step === 1 ? "Enter your personal details" : "Set your role & password"}
           </p>
@@ -187,7 +178,7 @@ export default function RegisterPage() {
 
               <button
                 type="submit"
-                className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold py-3.5 rounded-xl text-sm transition-all hover:shadow-md hover:shadow-amber-200 active:scale-[0.98]"
+                className="w-full bg-[#F53827] hover:bg-[#42BD00] text-white font-bold py-3.5 rounded-xl text-sm transition-all hover:shadow-md active:scale-[0.98]"
               >
                 Next
               </button>
@@ -209,8 +200,8 @@ export default function RegisterPage() {
                       onClick={() => setS2((p) => ({ ...p, role: r }))}
                       className={`py-2.5 rounded-xl border-2 text-xs font-semibold transition-all
                         ${s2.role === r
-                          ? "bg-amber-400 border-amber-400 text-zinc-950"
-                          : "bg-zinc-50 border-zinc-200 text-zinc-500 hover:border-amber-300"}`}
+                          ? "bg-[#42BD00] border-[#42BD00] text-white"
+                          : "bg-zinc-50 border-zinc-200 text-zinc-500 hover:border-[#42BD00]"}`}
                     >
                       {r}
                     </button>
@@ -223,16 +214,16 @@ export default function RegisterPage() {
 
               {/* Terms */}
               <p className="text-xs text-zinc-400 text-center leading-relaxed">
-                By registering you agree to VoltaZone's{" "}
-                <span className="text-amber-500 font-semibold cursor-pointer hover:underline">Terms of Service</span>
+                By registering you agree to Hopper Enterprise's{" "}
+                <span className="text-[#F53827] font-semibold cursor-pointer hover:underline">Terms of Service</span>
                 {" "}and{" "}
-                <span className="text-amber-500 font-semibold cursor-pointer hover:underline">Privacy Policy</span>.
+                <span className="text-[#F53827] font-semibold cursor-pointer hover:underline">Privacy Policy</span>.
               </p>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-amber-400 hover:bg-amber-300 disabled:opacity-60 disabled:cursor-not-allowed text-zinc-950 font-bold py-3.5 rounded-xl text-sm transition-all hover:shadow-md hover:shadow-amber-200 active:scale-[0.98]"
+                className="w-full bg-[#F53827] hover:bg-[#42BD00] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl text-sm transition-all hover:shadow-md active:scale-[0.98]"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -241,7 +232,7 @@ export default function RegisterPage() {
                     </svg>
                     Creating account…
                   </span>
-                ) : "Create account ✓"}
+                ) : "Create account"}
               </button>
 
               <button
@@ -257,7 +248,7 @@ export default function RegisterPage() {
           {/* Login link */}
           <p className="text-center text-sm text-zinc-400 mt-7">
             Already have an account?{" "}
-            <Link href="/login" className="text-amber-500 hover:text-amber-600 font-bold transition-colors">
+            <Link href="/login" className="text-[#F53827] hover:text-[#42BD00] font-bold transition-colors">
               Sign in
             </Link>
           </p>
@@ -265,7 +256,7 @@ export default function RegisterPage() {
         </div>
 
         <p className="text-center text-xs text-zinc-400 mt-5">
-          © 2025 VoltaZone 
+          © 2026 Hopper Enterprise 
         </p>
 
       </div>

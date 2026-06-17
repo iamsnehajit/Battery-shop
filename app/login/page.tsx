@@ -37,23 +37,16 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
 
         {/* Card */}
-        <div className="bg-white rounded-3xl border border-zinc-200 shadow-sm p-8 sm:p-10">
+        <div className="bg-white rounded-3xl border border-[#F53827] shadow-sm p-8 sm:p-10">
 
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-amber-400 flex items-center justify-center shadow-lg shadow-amber-200 mb-4">
-              <svg className="w-7 h-7 text-zinc-950" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2L4.5 13.5H11L10 22L20.5 10H14L13 2Z" />
-              </svg>
-            </div>
-            <h1 className="text-2xl font-black text-zinc-900 tracking-tight">
-              VOLTA<span className="text-amber-400">ZONE</span>
-            </h1>
+            
             
           </div>
 
-          <h2 className="text-xl font-bold text-zinc-900 text-center mb-1">Welcome back</h2>
-          <p className="text-sm text-zinc-400 text-center mb-8">Sign in to your account</p>
+          <h2 className="text-2xl font-bold text-zinc-900 text-center mb-8">Sign in to your account</h2>
+          
 
           <form onSubmit={handleSubmit} className="space-y-5" noValidate>
 
@@ -68,8 +61,8 @@ export default function LoginPage() {
                 onChange={(e) => { setEmail(e.target.value); setErrors((p) => ({ ...p, email: undefined })); }}
                 placeholder="admin@voltazone.in"
                 className={`w-full border rounded-xl px-4 py-3 text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none transition-all
-                  focus:ring-2 focus:ring-amber-400 focus:border-amber-400 focus:bg-amber-50/30
-                  ${errors.email ? "border-red-400 bg-red-50/30" : "border-zinc-200"}`}
+                  focus:ring-2 focus:ring-[#42BD00] focus:border-[#42BD00] focus:bg-amber-50/30
+                  ${errors.email ? "border-red-400 bg-red-50/30" : "border-[#42BD00]"}`}
               />
               {errors.email && (
                 <p className="text-xs text-red-500 mt-1.5">{errors.email}</p>
@@ -88,8 +81,8 @@ export default function LoginPage() {
                   onChange={(e) => { setPassword(e.target.value); setErrors((p) => ({ ...p, password: undefined })); }}
                   placeholder="Enter your password"
                   className={`w-full border rounded-xl px-4 py-3 pr-11 text-sm text-zinc-900 bg-zinc-50 placeholder:text-zinc-400 outline-none transition-all
-                    focus:ring-2 focus:ring-amber-400 focus:border-amber-400 focus:bg-amber-50/30
-                    ${errors.password ? "border-red-400 bg-red-50/30" : "border-zinc-200"}`}
+                    focus:ring-2 focus:ring-[#42BD00] focus:border-[#42BD00] focus:bg-amber-50/30
+                    ${errors.password ? "border-red-400 bg-red-50/30" : "border-[#42BD00]"}`}
                 />
                 <button
                   type="button"
@@ -119,7 +112,7 @@ export default function LoginPage() {
             <div className="flex justify-end -mt-2">
               <button
                 type="button"
-                className="text-xs font-semibold text-amber-500 hover:text-amber-600 transition-colors"
+                className="text-xs font-semibold text-[#F53827] hover:text-[#F53827] transition-colors"
               >
                 Forgot password?
               </button>
@@ -129,7 +122,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-amber-400 hover:bg-amber-300 disabled:opacity-60 disabled:cursor-not-allowed text-zinc-950 font-bold py-3.5 rounded-xl text-sm transition-all hover:shadow-md hover:shadow-amber-200 active:scale-[0.98]"
+              className="w-full bg-[#F53827] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl text-sm transition-all hover:bg-[#42BD00] active:scale-[0.98]"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -152,7 +145,7 @@ export default function LoginPage() {
             {/* <button
               type="button"
               onClick={() => { setEmail("admin@voltazone.in"); setPassword("admin123"); }}
-              className="w-full border border-zinc-200 hover:border-amber-400 text-zinc-500 hover:text-amber-600 font-semibold py-3 rounded-xl text-sm transition-all bg-zinc-50 hover:bg-amber-50/40"
+              className="w-full border border-zinc-200 hover:border-[#F53827] text-zinc-500 hover:text-[#F53827] font-semibold py-3 rounded-xl text-sm transition-all bg-zinc-50 hover:bg-amber-50/40"
             >
               ⚡ Fill demo credentials
             </button> */}
@@ -162,7 +155,7 @@ export default function LoginPage() {
           {/* Register link */}
           <p className="text-center text-sm text-zinc-400 mt-7">
             Don't have an account?{" "}
-            <Link href="/register" className="text-amber-500 hover:text-amber-600 font-bold transition-colors">
+            <Link href="/register" className="text-[#F53827] hover:text-[#42BD00] font-bold transition-colors">
               Register
             </Link>
           </p>
@@ -171,7 +164,7 @@ export default function LoginPage() {
 
         {/* Footer note */}
         <p className="text-center text-xs text-zinc-400 mt-5">
-          © 2025 VoltaZone
+          © 2026 Hopper Enterprise 
         </p>
 
       </div>

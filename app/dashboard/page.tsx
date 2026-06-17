@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Logo from "../../public/images/logo.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -172,7 +174,7 @@ function Modal({ view, editData, onClose, onSave }: ModalProps) {
                 <select
                   value={String(form[f.key] ?? "")}
                   onChange={(e) => set(f.key, e.target.value)}
-                  className="w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  className="w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#F53827]"
                 >
                   {f.opts?.map((o) => <option key={o}>{o}</option>)}
                 </select>
@@ -184,7 +186,7 @@ function Modal({ view, editData, onClose, onSave }: ModalProps) {
                     set(f.key, f.type === "number" ? Number(e.target.value) : e.target.value)
                   }
                   placeholder={f.label}
-                  className="w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  className="w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-800 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#F53827]"
                 />
               )}
             </div>
@@ -200,7 +202,7 @@ function Modal({ view, editData, onClose, onSave }: ModalProps) {
           </button>
           <button
             onClick={() => onSave(form)}
-            className="px-5 py-2 text-sm font-semibold bg-amber-400 hover:bg-amber-300 text-zinc-950 rounded-lg transition-colors"
+            className="px-5 py-2 text-sm font-semibold bg-[#F53827] hover:bg-[#42BD00] text-zinc-950 rounded-lg transition-colors"
           >
             Save
           </button>
@@ -234,11 +236,11 @@ function TableCard({
             value={search}
             onChange={(e) => onSearch(e.target.value)}
             placeholder="Search..."
-            className="border border-zinc-200 rounded-lg px-3 py-1.5 text-xs text-zinc-700 bg-zinc-50 w-40 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="border border-zinc-200 rounded-lg px-3 py-1.5 text-xs text-zinc-700 bg-zinc-50 w-40 focus:outline-none focus:ring-2 focus:ring-[#F53827]"
           />
           <button
             onClick={onAdd}
-            className="flex items-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-zinc-950 text-xs font-semibold px-4 py-1.5 rounded-full transition-colors"
+            className="flex items-center gap-1.5 bg-[#F53827] hover:bg-[#42BD00] text-zinc-950 text-xs font-semibold px-4 py-1.5 rounded-full transition-colors"
           >
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
               <path d="M12 5v14M5 12h14" />
@@ -369,17 +371,10 @@ const NAV: { id: View; label: string; icon: React.ReactNode }[] = [
 
 function Sidebar({ active, onChange }: { active: View; onChange: (v: View) => void }) {
   return (
-    <aside className="w-56 min-w-56 bg-zinc-950 flex flex-col h-full">
+    <aside className="w-56 min-w-56 bg-[#041A01] flex flex-col h-full">
       {/* Logo */}
-      <div className="flex items-center gap-2.5 px-5 py-5 border-b border-zinc-800">
-        <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
-          <svg className="w-4 h-4 text-zinc-950" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M13 2L4.5 13.5H11L10 22L20.5 10H14L13 2Z" />
-          </svg>
-        </div>
-        <span className="text-white font-black text-base tracking-tight">
-          VOLTA<span className="text-amber-400">ZONE</span>
-        </span>
+      <div className="flex items-center justify-center gap-2.5 px-5 py-5 border-b border-zinc-800">
+         <Image src={Logo} alt="VoltaZone Logo" className="w-24" />
       </div>
 
       {/* Nav */}
@@ -390,8 +385,8 @@ function Sidebar({ active, onChange }: { active: View; onChange: (v: View) => vo
             onClick={() => onChange(n.id)}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left ${
               active === n.id
-                ? "bg-amber-400 text-zinc-950"
-                : "text-zinc-400 hover:text-white hover:bg-zinc-800"
+                ? "bg-[#F53827] text-white"
+                : "text-zinc-400 hover:text-white hover:bg-[#42BD00]"
             }`}
           >
             {n.icon}
@@ -406,8 +401,8 @@ function Sidebar({ active, onChange }: { active: View; onChange: (v: View) => vo
           onClick={() => onChange("profile")}
           className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left ${
             active === "profile"
-              ? "bg-amber-400 text-zinc-950"
-              : "text-zinc-400 hover:text-white hover:bg-zinc-800"
+              ? "bg-[#F53827] text-white"
+              : "text-zinc-400 hover:text-white hover:bg-[#42BD00]"
           }`}
         >
           {NAV.find((n) => n.id === "profile")?.icon}
@@ -716,7 +711,7 @@ function ProfileView() {
   const [form, setForm] = useState(profile);
 
   const inputCls =
-    "w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-amber-400 text-zinc-800";
+    "w-full border border-zinc-200 rounded-lg px-3 py-2 text-sm bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#F53827] text-zinc-800";
 
   return (
     <div className="max-w-xl mx-auto flex flex-col gap-4">
@@ -757,7 +752,7 @@ function ProfileView() {
               <button onClick={() => setEditing(false)} className="px-4 py-2 text-sm text-zinc-500 border border-zinc-200 rounded-lg hover:bg-zinc-50">Cancel</button>
               <button
                 onClick={() => { setProfile({ ...profile, ...form }); setEditing(false); }}
-                className="px-5 py-2 text-sm font-semibold bg-amber-400 hover:bg-amber-300 text-zinc-950 rounded-lg"
+                className="px-5 py-2 text-sm font-semibold bg-[#F53827] hover:bg-[#42BD00] text-zinc-950 rounded-lg"
               >
                 Save changes
               </button>
@@ -785,7 +780,7 @@ function ProfileView() {
             </div>
           ))}
           <div className="flex justify-end mt-1">
-            <button className="px-5 py-2 text-sm font-semibold bg-amber-400 hover:bg-amber-300 text-zinc-950 rounded-lg transition-colors">
+            <button className="px-5 py-2 text-sm font-semibold bg-[#F53827] hover:bg-[#42BD00] text-zinc-950 rounded-lg transition-colors">
               Update password
             </button>
           </div>
@@ -811,13 +806,13 @@ export default function DashboardPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Topbar */}
         <header className="bg-white border-b border-zinc-200 px-6 h-14 flex items-center justify-between shrink-0">
-          <h1 className="text-base font-semibold text-zinc-900">{VIEW_LABELS[view]}</h1>
+          <h1 className="text-base font-semibold text-[#F53827]">{VIEW_LABELS[view]}</h1>
           <div className="flex items-center gap-3">
             <button className="relative text-zinc-400 hover:text-zinc-700 transition-colors" aria-label="Notifications">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7}>
                 <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
               </svg>
-              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-amber-400 rounded-full" />
+              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#F53827] rounded-full" />
             </button>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 text-xs font-bold">AK</div>
